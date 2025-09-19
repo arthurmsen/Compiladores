@@ -18,6 +18,10 @@ _INT        {D}+
 
 _FLOAT      {D}+(\.{D}+)?([Ee][+\-]?{D}+)?
 
+_FOR        [F|f][O/o][R/r]
+
+_IF         [I|i][F|f]
+
 _STRING     \"([\t]|[^\n\"]|\\\"|\\\'|\"\"|\'\')*\"|\'([\t]|[^\n\']|\\\"|\\\'|\"\"|\'\')*\'
 
 _STRING2    (\`|\})([\n\t]|[^\`\{]|\')*(\`|[\$])|\`([\n\t]|[ˆ\`]|\'|[\$][^{])*\`
@@ -37,18 +41,9 @@ WS          [ \t\n]+
 "=="    { lexema = yytext; return _IG; }
 "!="    { lexema = yytext; return _DIF; }
 
-"for"   { lexema = yytext; return _FOR; }
-"For"   { lexema = yytext; return _FOR; }
-"fOr"   { lexema = yytext; return _FOR; }
-"foR"   { lexema = yytext; return _FOR; }
-"FOr"   { lexema = yytext; return _FOR; }
-"FoR"   { lexema = yytext; return _FOR; }
-"FOR"   { lexema = yytext; return _FOR; }
+{_FOR}   { lexema = yytext; return _FOR; }
 
-"if"    {lexema = yytext; return _IF;}
-"If"    {lexema = yytext; return _IF;}
-"iF"    {lexema = yytext; return _IF;}
-"IF"    {lexema = yytext; return _IF;}
+{_IF}    {lexema = yytext; return _IF;}
 
 {_ID}    { lexema = yytext; return _ID; }
 
