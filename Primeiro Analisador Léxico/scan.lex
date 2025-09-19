@@ -18,7 +18,7 @@ _INT        {D}+
 
 _FLOAT      {D}+(\.{D}+)?([Ee][+\-]?{D}+)?
 
-_FOR        [F|f][O/o][R/r]
+_FOR        [F|f][O|o][R|r]
 
 _IF         [I|i][F|f]
 
